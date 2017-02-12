@@ -99,6 +99,33 @@ public class AuthAPI {
     }
     
     func createAccount(_ email: String, _ password: String) -> Observable<Bool> {
+//        let observable = Observable<APIResponseResult>.create { observer -> Disposable in
+//            
+//            let completion : (FIRUser?, Error?) -> Void =  {  (user, error) in
+//                
+//                if let error = error {
+//                    UserSession.default.clearSession()
+//                    observer.onError(APIResponseResult.Failure(error))
+//                    observer.on(.completed)
+//                    return
+//                }
+//                
+//                UserSession.default.user.value = user!
+//                observer.onNext(APIResponseResult.Success)
+//                observer.on(.completed)
+//                return
+//            }
+//            
+//            FIRAuthResultCallback
+//            
+//            FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: completion)
+//            
+//            observer.on(.completed)
+//            return Disposables.create()
+//        }
+        
+        return observable.delay(3.0, scheduler: MainScheduler.instance)
+        
         // this is also just a mock
         let signupResult = arc4random() % 5 == 0 ? false : true
         
@@ -135,41 +162,5 @@ public class AuthAPI {
         return observable.delay(3.0, scheduler: MainScheduler.instance)
         
     }
-    
-//    func createGoogleDataObservable() -> Observable<String> {
-//        
-//        return Observable<String>.create({ (observer) -> Disposable in
-//            
-//            let session = URLSession()
-//            let task = session.dataTask(with: URL(string:"https://www.google.com")!) { (data, response, error) in
-//                
-//                // We want to update the observer on the UI thread
-//                DispatchQueue.main.async {
-//                    if let err = error {
-//                        // If there's an error, send an Error event and finish the sequence
-//                        observer.onError(err)
-//                    } else {
-//                        if let googleString = String(data: data!, encoding: .ascii) {
-//                            //Emit the fetched element
-//                            observer.onNext(googleString!)
-//                        } else {
-//                            //Send error string if we weren't able to parse the response data
-//                            observer.onNext("Error! Unable to parse the response data from google!")
-//                        }
-//                        //Complete the sequence
-//                        observer.onCompleted()
-//                    }
-//                }
-//            }
-//            
-//            task.resume()
-//            
-//            //Return an AnonymousDisposable
-//            return Disposables.create(with: {
-//                //Cancel the connection if disposed
-//                task.cancel()
-//            })
-//        })
-//    }
-}
+ }
 
