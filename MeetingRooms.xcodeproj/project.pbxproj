@@ -16,6 +16,11 @@
 		754A04A11E50856B00BB4593 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A049F1E50856B00BB4593 /* SignUpViewModel.swift */; };
 		754A04A41E50857400BB4593 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04A21E50857400BB4593 /* LoginViewController.swift */; };
 		754A04A51E50857400BB4593 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04A31E50857400BB4593 /* LoginViewModel.swift */; };
+		754A04AA1E5095BD00BB4593 /* MeetingRoomsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04A91E5095BD00BB4593 /* MeetingRoomsListViewController.swift */; };
+		754A04AD1E50982600BB4593 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04AB1E50982600BB4593 /* Reachability.swift */; };
+		754A04AE1E50982600BB4593 /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04AC1E50982600BB4593 /* ReachabilityService.swift */; };
+		754A04B21E509AC700BB4593 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04B11E509AC700BB4593 /* Styles.swift */; };
+		754A04B51E51111600BB4593 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04B41E51111500BB4593 /* User.swift */; };
 		758161301E4F4FE600BCFFE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7581612F1E4F4FE600BCFFE1 /* AppDelegate.swift */; };
 		758161351E4F4FE600BCFFE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758161331E4F4FE600BCFFE1 /* Main.storyboard */; };
 		7581613A1E4F4FE600BCFFE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758161381E4F4FE600BCFFE1 /* LaunchScreen.storyboard */; };
@@ -33,6 +38,11 @@
 		754A049F1E50856B00BB4593 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = "ViewControllers/Sign Up/SignUpViewModel.swift"; sourceTree = "<group>"; };
 		754A04A21E50857400BB4593 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		754A04A31E50857400BB4593 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		754A04A91E5095BD00BB4593 /* MeetingRoomsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRoomsListViewController.swift; sourceTree = "<group>"; };
+		754A04AB1E50982600BB4593 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Services/Reachability.swift; sourceTree = "<group>"; };
+		754A04AC1E50982600BB4593 /* ReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReachabilityService.swift; path = Services/ReachabilityService.swift; sourceTree = "<group>"; };
+		754A04B11E509AC700BB4593 /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Styles.swift; path = Base.lproj/Styles/Styles.swift; sourceTree = "<group>"; };
+		754A04B41E51111500BB4593 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		7581612C1E4F4FE600BCFFE1 /* MeetingRooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingRooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7581612F1E4F4FE600BCFFE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		758161341E4F4FE600BCFFE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +107,8 @@
 		754A04931E4FF09400BB4593 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				754A04AB1E50982600BB4593 /* Reachability.swift */,
+				754A04AC1E50982600BB4593 /* ReachabilityService.swift */,
 				754A04941E4FF0AB00BB4593 /* Wireframe.swift */,
 			);
 			name = Services;
@@ -117,6 +129,40 @@
 				754A049F1E50856B00BB4593 /* SignUpViewModel.swift */,
 			);
 			name = "Sign Up";
+			sourceTree = "<group>";
+		};
+		754A04A81E50959E00BB4593 /* MeetingRoomsList */ = {
+			isa = PBXGroup;
+			children = (
+				754A04A91E5095BD00BB4593 /* MeetingRoomsListViewController.swift */,
+			);
+			name = MeetingRoomsList;
+			path = ViewControllers/MeetingRoomsList;
+			sourceTree = "<group>";
+		};
+		754A04AF1E509AA300BB4593 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				758161331E4F4FE600BCFFE1 /* Main.storyboard */,
+				758161381E4F4FE600BCFFE1 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		754A04B01E509AAD00BB4593 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				754A04B11E509AC700BB4593 /* Styles.swift */,
+			);
+			name = Styles;
+			sourceTree = "<group>";
+		};
+		754A04B31E5110F400BB4593 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				754A04B41E51111500BB4593 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		758161231E4F4FE600BCFFE1 = {
@@ -140,10 +186,11 @@
 		7581612E1E4F4FE600BCFFE1 /* MeetingRooms */ = {
 			isa = PBXGroup;
 			children = (
+				754A04B31E5110F400BB4593 /* Models */,
+				7581612F1E4F4FE600BCFFE1 /* AppDelegate.swift */,
 				754A04961E4FF1D000BB4593 /* Protocols */,
 				754A04931E4FF09400BB4593 /* Services */,
 				754A048E1E4FDCEA00BB4593 /* Extensions */,
-				7581612F1E4F4FE600BCFFE1 /* AppDelegate.swift */,
 				758161451E4F50D900BCFFE1 /* Interfaces */,
 				75BA0E851E4F5B0F00CB7F87 /* ViewControllers */,
 				75BA0E861E4F5B1800CB7F87 /* Resources */,
@@ -155,8 +202,8 @@
 		758161451E4F50D900BCFFE1 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				758161331E4F4FE600BCFFE1 /* Main.storyboard */,
-				758161381E4F4FE600BCFFE1 /* LaunchScreen.storyboard */,
+				754A04B01E509AAD00BB4593 /* Styles */,
+				754A04AF1E509AA300BB4593 /* Storyboards */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -164,9 +211,10 @@
 		75BA0E851E4F5B0F00CB7F87 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				754A049D1E50853C00BB4593 /* Sign Up */,
 				75BA0E8D1E4F5B3D00CB7F87 /* RootViewController.swift */,
+				754A049D1E50853C00BB4593 /* Sign Up */,
 				754A048D1E4F70F600BB4593 /* Login */,
+				754A04A81E50959E00BB4593 /* MeetingRoomsList */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -306,12 +354,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				754A04A41E50857400BB4593 /* LoginViewController.swift in Sources */,
+				754A04B21E509AC700BB4593 /* Styles.swift in Sources */,
 				754A04901E4FDD1600BB4593 /* String+Extension.swift in Sources */,
+				754A04AD1E50982600BB4593 /* Reachability.swift in Sources */,
 				754A04A01E50856B00BB4593 /* SignUpViewController.swift in Sources */,
 				754A04A11E50856B00BB4593 /* SignUpViewModel.swift in Sources */,
 				754A04981E4FF20A00BB4593 /* AuthProtocols.swift in Sources */,
 				758161301E4F4FE600BCFFE1 /* AppDelegate.swift in Sources */,
+				754A04B51E51111600BB4593 /* User.swift in Sources */,
 				75BA0E901E4F5B3D00CB7F87 /* RootViewController.swift in Sources */,
+				754A04AA1E5095BD00BB4593 /* MeetingRoomsListViewController.swift in Sources */,
+				754A04AE1E50982600BB4593 /* ReachabilityService.swift in Sources */,
 				754A04951E4FF0AB00BB4593 /* Wireframe.swift in Sources */,
 				754A04A51E50857400BB4593 /* LoginViewModel.swift in Sources */,
 				754A04921E4FEE8200BB4593 /* Rx+Extension.swift in Sources */,
