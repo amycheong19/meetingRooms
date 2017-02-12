@@ -11,19 +11,10 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 
-
-public struct UserSession {
-    public static var `default` = UserSession()
-    public var user = Variable<FIRUser?>(nil)
-    
-    public func clearSession() {
-        user.value = .none
-    }
-}
-
+//MARK: - Authentication Response
 public enum APIResponseResult: Error {
-    case Success
-    case Failure(Error?)
+    case success
+    case failure(Error?)
 }
 
 public enum ValidationResult {
@@ -41,11 +32,13 @@ public enum ValidationResult {
     }
 }
 
+//MARK: - Authentication Validation Service
 public protocol ValidationService {
     func validateEmail(_ email: String) -> ValidationResult
-    
     func validatePassword(_ password: String) -> ValidationResult
+    func validateRepeatedPassword(_ password: String, repeatedPassword: String) -> ValidationResult
 }
+
 
 public class AuthValidationService : ValidationService {
     let API: AuthAPI
@@ -98,6 +91,7 @@ public class AuthValidationService : ValidationService {
 }
 
 
+//MARK: - Firebase Authentication APIs
 public class AuthAPI {
     let URLSession: Foundation.URLSession
     
@@ -109,6 +103,32 @@ public class AuthAPI {
         self.URLSession = URLSession
     }
     
+    public func login(_ email: String, _ password: String) -> Observable<APIResponseResult> {
+
+        return Observable.create { observer -> Disposable in
+            
+            let completion : (FIRUser?, Error?) -> Void =  {  (user, error) in
+                
+                if let error = error {
+                    UserSession.default.clearSession()
+                    observer.onError(APIResponseResult.failure(error))
+                }
+                
+                if let user = user {
+                    UserSession.default.user.value = user
+                    observer.onNext(APIResponseResult.success)
+                    observer.on(.completed)
+                }
+            }
+            
+            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: completion)
+            
+            return Disposables.create()
+        }
+        
+        
+    }
+    
     func createAccount(_ email: String, _ password: String) -> Observable<APIResponseResult> {
         let observable = Observable<APIResponseResult>.create { observer -> Disposable in
             
@@ -116,16 +136,17 @@ public class AuthAPI {
                 
                 if let error = error {
                     UserSession.default.clearSession()
-                    observer.onError(APIResponseResult.Failure(error))
-                    observer.on(.completed)
+                    observer.onError(APIResponseResult.failure(error))
                     return
                 }
                 
                 UserSession.default.user.value = user!
-                observer.onNext(APIResponseResult.Success)
+                observer.onNext(APIResponseResult.success)
                 observer.on(.completed)
                 return
             }
+            
+            
             
             
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: completion)
@@ -136,43 +157,41 @@ public class AuthAPI {
         
         return observable
         
-//        return observable.delay(3.0, scheduler: MainScheduler.instance)
-//        
-//        // this is also just a mock
-//        let signupResult = arc4random() % 5 == 0 ? false : true
-//        
-//        return Observable.just(signupResult)
-//            .delay(1.0, scheduler: MainScheduler.instance)
+        //        return observable.delay(3.0, scheduler: MainScheduler.instance)
+        //
+        //        // this is also just a mock
+        //        let signupResult = arc4random() % 5 == 0 ? false : true
+        //
+        //        return Observable.just(signupResult)
+        //            .delay(1.0, scheduler: MainScheduler.instance)
     }
     
-    public func login(_ email: String, _ password: String) -> Observable<APIResponseResult> {
-
+    
+    func resetPassword(with email: String) -> Observable<APIResponseResult> {
         let observable = Observable<APIResponseResult>.create { observer -> Disposable in
             
-            let completion : (FIRUser?, Error?) -> Void =  {  (user, error) in
+            let completion : (Error?) -> Void =  {  (error) in
                 
                 if let error = error {
                     UserSession.default.clearSession()
-                    observer.onError(APIResponseResult.Failure(error))
+                    observer.onError(APIResponseResult.failure(error))
                     observer.on(.completed)
                     return
                 }
                 
-                UserSession.default.user.value = user!
-                observer.onNext(APIResponseResult.Success)
+                observer.onNext(APIResponseResult.success)
                 observer.on(.completed)
                 return
             }
             
-            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: completion)
-            
+            FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: completion)
             
             observer.on(.completed)
             return Disposables.create()
         }
         
         return observable
-        
+
     }
  }
 
