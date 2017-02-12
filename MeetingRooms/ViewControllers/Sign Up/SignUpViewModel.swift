@@ -1,29 +1,18 @@
 //
-//  LoginViewModel.swift
+//  SignUpViewModel.swift
 //  MeetingRooms
 //
-//  Created by Amy Cheong on 11/2/17.
+//  Created by Amy Cheong on 12/2/17.
 //  Copyright © 2017 amycheong. All rights reserved.
 //
-
 import RxSwift
 import RxCocoa
 
-
-enum MOVESettingsFormAction: CustomStringConvertible {
-    case OK
-    case confirm
-    case cancel
-    
-    var description: String {
-        return "YAYAYA"
-    }
-}
-
-struct LoginViewModel {
+struct SignUpViewModel {
     
     let validatedEmail: Driver<ValidationResult>
     let validatedPassword: Driver<ValidationResult>
+    let validatedRepeatedPassword: Driver<ValidationResult>
     
     // Is submit button enabled
     let submitEnabled: Driver<Bool>
@@ -34,6 +23,7 @@ struct LoginViewModel {
         input: (
             email: Driver<String>,
             password: Driver<String>,
+            repeatedPassword: Driver<String>,
             submitTaps: Driver<Void>
         ),
         dependency: (
@@ -56,24 +46,26 @@ struct LoginViewModel {
                 return validationService.validatePassword(password)
         }
         
-
-        let emailAndPassword = Driver.combineLatest(input.email, input.password) { (s, s1) -> (String, String) in
-            let tt = (s, s1)
-            print("emailAndPassword:\(tt)")
-            return tt
+        validatedRepeatedPassword = Driver.combineLatest(input.password, input.repeatedPassword){
+            password, repeatedPassword in
+            return validationService.validateRepeatedPassword(password, repeatedPassword: repeatedPassword)
         }
-
-        submitEnabled = Driver.combineLatest(validatedEmail, validatedPassword, resultSelector: { email, password in
-            print("submitEnabled:\(email.isValid && password.isValid)")
-            return email.isValid && password.isValid
+        
+        
+        let emailAndPassword = Driver.combineLatest(input.email, input.password) {
+            return ($0, $1)
+        }
+        
+        submitEnabled = Driver.combineLatest(validatedEmail, validatedPassword, validatedRepeatedPassword, resultSelector: { email, password, repeatedPassword in
+            return email.isValid && password.isValid && repeatedPassword.isValid
         }).distinctUntilChanged()
         
         
         authResponse = input.submitTaps.withLatestFrom(emailAndPassword).asObservable()
-                            .flatMapLatest{ (email, password) in
-                            return API.login(email, password) //Observable<APIResponseResult>
-        }.asDriver(onErrorJustReturn: APIResponseResult.Failure(nil))
- 
+            .flatMapLatest{ (email, password) in
+                return API.createAccount(email, password) //Observable<APIResponseResult>
+            }.asDriver(onErrorJustReturn: APIResponseResult.Failure(nil))
+        
     }
     
     

@@ -66,7 +66,6 @@ public class AuthValidationService : ValidationService {
         if !email.isValidEmail() {
             return .failed(message: "Invalid email")
         }
-        print("OK for email")
         return .ok(message: "")
     }
     
@@ -79,10 +78,22 @@ public class AuthValidationService : ValidationService {
         case 1..<6:
             return .failed(message: "Invalid password")
         default:
-            print("OK for password")
             return .ok(message: "")
         }
         
+    }
+    
+    public func validateRepeatedPassword(_ password: String, repeatedPassword: String) -> ValidationResult {
+        
+        guard !password.isEmpty && !repeatedPassword.isEmpty else {
+            return .failed(message: "")
+        }
+        
+        if repeatedPassword == password {
+            return .ok(message: "Looks good!")
+        } else {
+            return .failed(message: "Password not match")
+        }
     }
 }
 
@@ -98,39 +109,40 @@ public class AuthAPI {
         self.URLSession = URLSession
     }
     
-    func createAccount(_ email: String, _ password: String) -> Observable<Bool> {
-//        let observable = Observable<APIResponseResult>.create { observer -> Disposable in
-//            
-//            let completion : (FIRUser?, Error?) -> Void =  {  (user, error) in
-//                
-//                if let error = error {
-//                    UserSession.default.clearSession()
-//                    observer.onError(APIResponseResult.Failure(error))
-//                    observer.on(.completed)
-//                    return
-//                }
-//                
-//                UserSession.default.user.value = user!
-//                observer.onNext(APIResponseResult.Success)
-//                observer.on(.completed)
-//                return
-//            }
-//            
-//            FIRAuthResultCallback
-//            
-//            FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: completion)
-//            
-//            observer.on(.completed)
-//            return Disposables.create()
-//        }
+    func createAccount(_ email: String, _ password: String) -> Observable<APIResponseResult> {
+        let observable = Observable<APIResponseResult>.create { observer -> Disposable in
+            
+            let completion : (FIRUser?, Error?) -> Void =  {  (user, error) in
+                
+                if let error = error {
+                    UserSession.default.clearSession()
+                    observer.onError(APIResponseResult.Failure(error))
+                    observer.on(.completed)
+                    return
+                }
+                
+                UserSession.default.user.value = user!
+                observer.onNext(APIResponseResult.Success)
+                observer.on(.completed)
+                return
+            }
+            
+            
+            FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: completion)
+            
+            observer.on(.completed)
+            return Disposables.create()
+        }
         
-        return observable.delay(3.0, scheduler: MainScheduler.instance)
+        return observable
         
-        // this is also just a mock
-        let signupResult = arc4random() % 5 == 0 ? false : true
-        
-        return Observable.just(signupResult)
-            .delay(1.0, scheduler: MainScheduler.instance)
+//        return observable.delay(3.0, scheduler: MainScheduler.instance)
+//        
+//        // this is also just a mock
+//        let signupResult = arc4random() % 5 == 0 ? false : true
+//        
+//        return Observable.just(signupResult)
+//            .delay(1.0, scheduler: MainScheduler.instance)
     }
     
     public func login(_ email: String, _ password: String) -> Observable<APIResponseResult> {
@@ -159,7 +171,7 @@ public class AuthAPI {
             return Disposables.create()
         }
         
-        return observable.delay(3.0, scheduler: MainScheduler.instance)
+        return observable
         
     }
  }
