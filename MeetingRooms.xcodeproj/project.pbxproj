@@ -24,6 +24,13 @@
 		758161301E4F4FE600BCFFE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7581612F1E4F4FE600BCFFE1 /* AppDelegate.swift */; };
 		758161351E4F4FE600BCFFE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758161331E4F4FE600BCFFE1 /* Main.storyboard */; };
 		7581613A1E4F4FE600BCFFE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758161381E4F4FE600BCFFE1 /* LaunchScreen.storyboard */; };
+		75B477401E517DF50086DFCC /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4773F1E517DF50086DFCC /* R.generated.swift */; };
+		75B477431E5181CA0086DFCC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B477411E5181CA0086DFCC /* Login.storyboard */; };
+		75B477461E51821E0086DFCC /* MeetingRoomsListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B477441E51821E0086DFCC /* MeetingRoomsListStoryboard.storyboard */; };
+		75B477491E5186FB0086DFCC /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B477471E5186FB0086DFCC /* SettingsStoryboard.storyboard */; };
+		75B4774B1E51873E0086DFCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4774A1E51873E0086DFCC /* SettingsViewController.swift */; };
+		75B4774F1E5190D20086DFCC /* DashboardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B4774D1E5190D20086DFCC /* DashboardStoryboard.storyboard */; };
+		75B477511E5199180086DFCC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B477501E5199180086DFCC /* DashboardViewController.swift */; };
 		75BA0E891E4F5B3100CB7F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75BA0E871E4F5B3100CB7F87 /* Assets.xcassets */; };
 		75BA0E8A1E4F5B3100CB7F87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75BA0E881E4F5B3100CB7F87 /* GoogleService-Info.plist */; };
 		75BA0E901E4F5B3D00CB7F87 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA0E8D1E4F5B3D00CB7F87 /* RootViewController.swift */; };
@@ -48,6 +55,13 @@
 		758161341E4F4FE600BCFFE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		758161391E4F4FE600BCFFE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7581613B1E4F4FE600BCFFE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75B4773F1E517DF50086DFCC /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		75B477421E5181CA0086DFCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		75B477451E51821E0086DFCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MeetingRoomsListStoryboard.storyboard; sourceTree = "<group>"; };
+		75B477481E5186FB0086DFCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		75B4774A1E51873E0086DFCC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
+		75B4774E1E5190D20086DFCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashboardStoryboard.storyboard; sourceTree = "<group>"; };
+		75B477501E5199180086DFCC /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ViewControllers/Dashboard/DashboardViewController.swift; sourceTree = "<group>"; };
 		75BA0E871E4F5B3100CB7F87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		75BA0E881E4F5B3100CB7F87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75BA0E8D1E4F5B3D00CB7F87 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = ViewControllers/RootViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +159,10 @@
 			children = (
 				758161331E4F4FE600BCFFE1 /* Main.storyboard */,
 				758161381E4F4FE600BCFFE1 /* LaunchScreen.storyboard */,
+				75B477411E5181CA0086DFCC /* Login.storyboard */,
+				75B477441E51821E0086DFCC /* MeetingRoomsListStoryboard.storyboard */,
+				75B477471E5186FB0086DFCC /* SettingsStoryboard.storyboard */,
+				75B4774D1E5190D20086DFCC /* DashboardStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -186,6 +204,7 @@
 		7581612E1E4F4FE600BCFFE1 /* MeetingRooms */ = {
 			isa = PBXGroup;
 			children = (
+				75B4773E1E517DF50086DFCC /* External */,
 				754A04B31E5110F400BB4593 /* Models */,
 				7581612F1E4F4FE600BCFFE1 /* AppDelegate.swift */,
 				754A04961E4FF1D000BB4593 /* Protocols */,
@@ -208,6 +227,30 @@
 			name = Interfaces;
 			sourceTree = "<group>";
 		};
+		75B4773E1E517DF50086DFCC /* External */ = {
+			isa = PBXGroup;
+			children = (
+				75B4773F1E517DF50086DFCC /* R.generated.swift */,
+			);
+			path = External;
+			sourceTree = SOURCE_ROOT;
+		};
+		75B4774C1E5187420086DFCC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				75B4774A1E51873E0086DFCC /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		75B477531E5199520086DFCC /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				75B477501E5199180086DFCC /* DashboardViewController.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
 		75BA0E851E4F5B0F00CB7F87 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +258,8 @@
 				754A049D1E50853C00BB4593 /* Sign Up */,
 				754A048D1E4F70F600BB4593 /* Login */,
 				754A04A81E50959E00BB4593 /* MeetingRoomsList */,
+				75B4774C1E5187420086DFCC /* Settings */,
+				75B477531E5199520086DFCC /* Dashboard */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -241,6 +286,7 @@
 				7581612A1E4F4FE600BCFFE1 /* Resources */,
 				32E381325634D49DB26B5BE6 /* [CP] Embed Pods Frameworks */,
 				A8A6D4A47029BEC08EA7B0B1 /* [CP] Copy Pods Resources */,
+				75B4773D1E517C720086DFCC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -292,8 +338,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7581613A1E4F4FE600BCFFE1 /* LaunchScreen.storyboard in Resources */,
+				75B477491E5186FB0086DFCC /* SettingsStoryboard.storyboard in Resources */,
 				75BA0E8A1E4F5B3100CB7F87 /* GoogleService-Info.plist in Resources */,
 				75BA0E891E4F5B3100CB7F87 /* Assets.xcassets in Resources */,
+				75B477431E5181CA0086DFCC /* Login.storyboard in Resources */,
+				75B477461E51821E0086DFCC /* MeetingRoomsListStoryboard.storyboard in Resources */,
+				75B4774F1E5190D20086DFCC /* DashboardStoryboard.storyboard in Resources */,
 				758161351E4F4FE600BCFFE1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +365,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeetingRooms/Pods-MeetingRooms-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		75B4773D1E517C720086DFCC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT/External\"";
 		};
 		811B0B4FD49862FAC92F9DEB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -354,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				754A04A41E50857400BB4593 /* LoginViewController.swift in Sources */,
+				75B477511E5199180086DFCC /* DashboardViewController.swift in Sources */,
 				754A04B21E509AC700BB4593 /* Styles.swift in Sources */,
 				754A04901E4FDD1600BB4593 /* String+Extension.swift in Sources */,
 				754A04AD1E50982600BB4593 /* Reachability.swift in Sources */,
@@ -364,6 +428,8 @@
 				754A04B51E51111600BB4593 /* User.swift in Sources */,
 				75BA0E901E4F5B3D00CB7F87 /* RootViewController.swift in Sources */,
 				754A04AA1E5095BD00BB4593 /* MeetingRoomsListViewController.swift in Sources */,
+				75B477401E517DF50086DFCC /* R.generated.swift in Sources */,
+				75B4774B1E51873E0086DFCC /* SettingsViewController.swift in Sources */,
 				754A04AE1E50982600BB4593 /* ReachabilityService.swift in Sources */,
 				754A04951E4FF0AB00BB4593 /* Wireframe.swift in Sources */,
 				754A04A51E50857400BB4593 /* LoginViewModel.swift in Sources */,
@@ -388,6 +454,38 @@
 				758161391E4F4FE600BCFFE1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		75B477411E5181CA0086DFCC /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75B477421E5181CA0086DFCC /* Base */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		75B477441E51821E0086DFCC /* MeetingRoomsListStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75B477451E51821E0086DFCC /* Base */,
+			);
+			name = MeetingRoomsListStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		75B477471E5186FB0086DFCC /* SettingsStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75B477481E5186FB0086DFCC /* Base */,
+			);
+			name = SettingsStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		75B4774D1E5190D20086DFCC /* DashboardStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75B4774E1E5190D20086DFCC /* Base */,
+			);
+			name = DashboardStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

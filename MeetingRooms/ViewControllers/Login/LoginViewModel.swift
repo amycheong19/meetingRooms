@@ -18,7 +18,7 @@ struct LoginViewModel {
     // Is submit button enabled
     let submitEnabled: Driver<Bool>
     
-    let authResponse: Driver<APIResponseResult>
+    let authResponse: Observable<APIResponseResult>
     
     init(
         input: (
@@ -55,11 +55,16 @@ struct LoginViewModel {
             return email.isValid && password.isValid
         }).distinctUntilChanged()
         
+        authResponse = input.submitTaps.withLatestFrom(emailAndPassword).asObservable().flatMapLatest{(email, password) in
+            return API.login(email, password)
+        }
         
-        authResponse = input.submitTaps.withLatestFrom(emailAndPassword).asObservable()
-                            .flatMapLatest{ (email, password) in
-                            return API.login(email, password) //Observable<APIResponseResult>
-        }.asDriver(onErrorJustReturn: APIResponseResult.failure(nil))
+        
+//        authResponse = input.submitTaps.withLatestFrom(emailAndPassword).asObservable()
+//                            .flatMapLatest{ (email, password) in
+//                            return API.login(email, password)
+//                                //Observable<APIResponseResult>
+//        }.asDriver(onErrorJustReturn: APIResponseResult.failure(nil))
  
     }
     

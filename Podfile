@@ -20,6 +20,12 @@ end
 def main
     rx
     firebase
+    
+    pod 'Alamofire', '~> 4.0'
+    pod 'R.swift', '~> 3'
+    pod 'R.swift.Library', '~> 3'
+    pod 'RxDataSources', '~> 1.0'
+
 end
 
 target 'MeetingRooms' do

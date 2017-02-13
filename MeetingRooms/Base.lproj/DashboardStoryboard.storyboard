@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ylS-jk-blV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dashboard View Controller-->
+        <scene sceneID="gjE-lr-lSl">
+            <objects>
+                <viewController storyboardIdentifier="DashboardBase" id="1Lu-WY-elm" customClass="DashboardViewController" customModule="MeetingRooms" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jjC-NM-aFg"/>
+                        <viewControllerLayoutGuide type="bottom" id="VgQ-uH-cYf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aD3-ra-Edr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fk1-Go-lU7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATq-Cz-WPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="167.76611694152925"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TdR-Qw-Ie0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ylS-jk-blV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="11B-1L-20x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1Lu-WY-elm" kind="relationship" relationship="rootViewController" id="AaI-1D-ClD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kIg-f9-3ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.599999999999994" y="167.76611694152925"/>
+        </scene>
+    </scenes>
+</document>

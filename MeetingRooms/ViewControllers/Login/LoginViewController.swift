@@ -55,19 +55,13 @@ var disposeBag = DisposeBag()
         viewModel.validatedPassword.debounce(0.5).drive(passwordValidationOutlet.rx.validationResult).addDisposableTo(disposeBag)
         
         
-        viewModel.authResponse.drive(onNext: { (result) in
-            switch result {
-            case .failure(let error):
-                if (error != nil) {
-                    DefaultWireframe.presentAlert("Error", error?.localizedDescription ?? "Error")
-                }
-                print("Error: \(error)")
-            case .success:
-                print("REDIRECT")
-                break
-            }
+        
+        viewModel.authResponse.subscribe(onNext: { (result) in
+                //REDIRECT
             
-        }).addDisposableTo(disposeBag)
+            }, onError: { error in
+                DefaultWireframe.presentAlert("Error", error.localizedDescription)
+            }).addDisposableTo(disposeBag)
         
     }
     

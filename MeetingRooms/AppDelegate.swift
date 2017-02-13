@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+import RxSwift
+import RxCocoa
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
+        setupRootViewController()
         return true
     }
     
@@ -26,5 +29,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
+}
+
+//Navigations
+extension AppDelegate {
+    
+    func setupRootViewController() {
+        let main = R.storyboard.main().instantiateInitialViewController()
+        window?.rootViewController = main
+    }
+    
+    func baseViewControllerSetup() {
+        
+        if UserSession.default.user != nil {
+           
+        }
+    }
 }
 
