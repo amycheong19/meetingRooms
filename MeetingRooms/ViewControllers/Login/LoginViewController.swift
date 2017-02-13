@@ -57,12 +57,12 @@ var disposeBag = DisposeBag()
         
         viewModel.authResponse.drive(onNext: { (result) in
             switch result {
-            case .Failure(let error):
+            case .failure(let error):
                 if (error != nil) {
                     DefaultWireframe.presentAlert("Error", error?.localizedDescription ?? "Error")
                 }
                 print("Error: \(error)")
-            case .Success:
+            case .success:
                 print("REDIRECT")
                 break
             }

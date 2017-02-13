@@ -50,12 +50,12 @@ class SignUpViewController: UIViewController {
 
         viewModel.authResponse.drive(onNext: { (result) in
             switch result {
-            case .Failure(let error):
+            case .failure(let error):
                 print("Error: \(error)")
                 if (error != nil) {
                     DefaultWireframe.presentAlert("Error", error?.localizedDescription ?? "Error")
                 }
-            case .Success:
+            case .success:
                 print("REDIRECT")
                 break
             }

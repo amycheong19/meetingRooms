@@ -64,7 +64,7 @@ struct SignUpViewModel {
         authResponse = input.submitTaps.withLatestFrom(emailAndPassword).asObservable()
             .flatMapLatest{ (email, password) in
                 return API.createAccount(email, password) //Observable<APIResponseResult>
-            }.asDriver(onErrorJustReturn: APIResponseResult.Failure(nil))
+            }.asDriver(onErrorJustReturn: APIResponseResult.failure(nil))
         
     }
     
