@@ -31,6 +31,7 @@
 		75B4774B1E51873E0086DFCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4774A1E51873E0086DFCC /* SettingsViewController.swift */; };
 		75B4774F1E5190D20086DFCC /* DashboardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B4774D1E5190D20086DFCC /* DashboardStoryboard.storyboard */; };
 		75B477511E5199180086DFCC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B477501E5199180086DFCC /* DashboardViewController.swift */; };
+		75B477551E51A40A0086DFCC /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B477541E51A40A0086DFCC /* DatabaseManager.swift */; };
 		75BA0E891E4F5B3100CB7F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75BA0E871E4F5B3100CB7F87 /* Assets.xcassets */; };
 		75BA0E8A1E4F5B3100CB7F87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75BA0E881E4F5B3100CB7F87 /* GoogleService-Info.plist */; };
 		75BA0E901E4F5B3D00CB7F87 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA0E8D1E4F5B3D00CB7F87 /* RootViewController.swift */; };
@@ -62,6 +63,7 @@
 		75B4774A1E51873E0086DFCC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
 		75B4774E1E5190D20086DFCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashboardStoryboard.storyboard; sourceTree = "<group>"; };
 		75B477501E5199180086DFCC /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ViewControllers/Dashboard/DashboardViewController.swift; sourceTree = "<group>"; };
+		75B477541E51A40A0086DFCC /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = Models/DatabaseManager.swift; sourceTree = "<group>"; };
 		75BA0E871E4F5B3100CB7F87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		75BA0E881E4F5B3100CB7F87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75BA0E8D1E4F5B3D00CB7F87 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = ViewControllers/RootViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				754A04B41E51111500BB4593 /* User.swift */,
+				75B477541E51A40A0086DFCC /* DatabaseManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				754A04AA1E5095BD00BB4593 /* MeetingRoomsListViewController.swift in Sources */,
 				75B477401E517DF50086DFCC /* R.generated.swift in Sources */,
 				75B4774B1E51873E0086DFCC /* SettingsViewController.swift in Sources */,
+				75B477551E51A40A0086DFCC /* DatabaseManager.swift in Sources */,
 				754A04AE1E50982600BB4593 /* ReachabilityService.swift in Sources */,
 				754A04951E4FF0AB00BB4593 /* Wireframe.swift in Sources */,
 				754A04A51E50857400BB4593 /* LoginViewModel.swift in Sources */,

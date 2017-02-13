@@ -1,0 +1,15 @@
+{
+  "users": {
+    "1" : { "name": "TJ", "email": "tj@vision-media.ca" },
+    "2" : { "name": "TB", "email": "tB@vision-media.ca" }
+  },
+  "meetingRooms": {
+    "Tiger Den" : {"capacity": 10, "image": "-" },
+    "Lion Den"  : {"capacity": 15, "image": "-" }
+  },
+  "meetings": {
+    "201602131650-2": {
+      "meetingRooms": "Tiger Den", "title": "Orientation", "desc": "Welcome newcomers", "hours": 2, "Attendees": { "1": true, "2": false }
+    }
+  }
+}
