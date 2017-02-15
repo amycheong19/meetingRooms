@@ -18,3 +18,12 @@ public struct UserSession {
         user.value = .none
     }
 }
+
+
+//id: roomCode
+struct User {
+    var id: Int
+    var name: String
+    var email : String?
+    var image: String
+}

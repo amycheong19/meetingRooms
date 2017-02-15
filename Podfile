@@ -25,6 +25,7 @@ def main
     pod 'R.swift', '~> 3'
     pod 'R.swift.Library', '~> 3'
     pod 'RxDataSources', '~> 1.0'
+    pod 'SwiftDate', '~> 4.0'
 
 end
 

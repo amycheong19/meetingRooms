@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F020E619C6AABDDC05C6829 /* Pods_MeetingRooms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEC5337293C48B3D88618F4 /* Pods_MeetingRooms.framework */; };
+		750F55101E53F5FF00259B42 /* MeetingRoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750F550F1E53F5FF00259B42 /* MeetingRoomListViewModel.swift */; };
+		750F55131E53FE3700259B42 /* MeetingRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750F55121E53FE3700259B42 /* MeetingRoomTableViewCell.swift */; };
 		754A04901E4FDD1600BB4593 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A048F1E4FDD1600BB4593 /* String+Extension.swift */; };
 		754A04921E4FEE8200BB4593 /* Rx+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04911E4FEE8200BB4593 /* Rx+Extension.swift */; };
 		754A04951E4FF0AB00BB4593 /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A04941E4FF0AB00BB4593 /* Wireframe.swift */; };
@@ -32,12 +34,15 @@
 		75B4774F1E5190D20086DFCC /* DashboardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B4774D1E5190D20086DFCC /* DashboardStoryboard.storyboard */; };
 		75B477511E5199180086DFCC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B477501E5199180086DFCC /* DashboardViewController.swift */; };
 		75B477551E51A40A0086DFCC /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B477541E51A40A0086DFCC /* DatabaseManager.swift */; };
+		75B477571E52ED470086DFCC /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B477561E52ED470086DFCC /* Meeting.swift */; };
 		75BA0E891E4F5B3100CB7F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75BA0E871E4F5B3100CB7F87 /* Assets.xcassets */; };
 		75BA0E8A1E4F5B3100CB7F87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75BA0E881E4F5B3100CB7F87 /* GoogleService-Info.plist */; };
 		75BA0E901E4F5B3D00CB7F87 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA0E8D1E4F5B3D00CB7F87 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		750F550F1E53F5FF00259B42 /* MeetingRoomListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRoomListViewModel.swift; sourceTree = "<group>"; };
+		750F55121E53FE3700259B42 /* MeetingRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingRoomTableViewCell.swift; path = Base.lproj/TableViewCells/MeetingRoomTableViewCell.swift; sourceTree = "<group>"; };
 		754A048F1E4FDD1600BB4593 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "Extensions/String+Extension.swift"; sourceTree = "<group>"; };
 		754A04911E4FEE8200BB4593 /* Rx+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Rx+Extension.swift"; path = "Extensions/Rx+Extension.swift"; sourceTree = "<group>"; };
 		754A04941E4FF0AB00BB4593 /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wireframe.swift; path = Services/Wireframe.swift; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 		75B4774E1E5190D20086DFCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashboardStoryboard.storyboard; sourceTree = "<group>"; };
 		75B477501E5199180086DFCC /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ViewControllers/Dashboard/DashboardViewController.swift; sourceTree = "<group>"; };
 		75B477541E51A40A0086DFCC /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = Models/DatabaseManager.swift; sourceTree = "<group>"; };
+		75B477561E52ED470086DFCC /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meeting.swift; path = Models/Meeting.swift; sourceTree = "<group>"; };
 		75BA0E871E4F5B3100CB7F87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		75BA0E881E4F5B3100CB7F87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75BA0E8D1E4F5B3D00CB7F87 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = ViewControllers/RootViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +105,14 @@
 				E516FDA9D9575F3A8D011461 /* Pods-MeetingRooms.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		750F55111E53FDF900259B42 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				750F55121E53FE3700259B42 /* MeetingRoomTableViewCell.swift */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 		754A048D1E4F70F600BB4593 /* Login */ = {
@@ -151,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				754A04A91E5095BD00BB4593 /* MeetingRoomsListViewController.swift */,
+				750F550F1E53F5FF00259B42 /* MeetingRoomListViewModel.swift */,
 			);
 			name = MeetingRoomsList;
 			path = ViewControllers/MeetingRoomsList;
@@ -163,8 +178,8 @@
 				758161381E4F4FE600BCFFE1 /* LaunchScreen.storyboard */,
 				75B477411E5181CA0086DFCC /* Login.storyboard */,
 				75B477441E51821E0086DFCC /* MeetingRoomsListStoryboard.storyboard */,
-				75B477471E5186FB0086DFCC /* SettingsStoryboard.storyboard */,
 				75B4774D1E5190D20086DFCC /* DashboardStoryboard.storyboard */,
+				75B477471E5186FB0086DFCC /* SettingsStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -181,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				754A04B41E51111500BB4593 /* User.swift */,
+				75B477561E52ED470086DFCC /* Meeting.swift */,
 				75B477541E51A40A0086DFCC /* DatabaseManager.swift */,
 			);
 			name = Models;
@@ -224,6 +240,7 @@
 		758161451E4F50D900BCFFE1 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				750F55111E53FDF900259B42 /* TableViewCells */,
 				754A04B01E509AAD00BB4593 /* Styles */,
 				754A04AF1E509AA300BB4593 /* Storyboards */,
 			);
@@ -284,12 +301,12 @@
 			buildConfigurationList = 7581613E1E4F4FE600BCFFE1 /* Build configuration list for PBXNativeTarget "MeetingRooms" */;
 			buildPhases = (
 				811B0B4FD49862FAC92F9DEB /* [CP] Check Pods Manifest.lock */,
+				75B4773D1E517C720086DFCC /* ShellScript */,
 				758161281E4F4FE600BCFFE1 /* Sources */,
 				758161291E4F4FE600BCFFE1 /* Frameworks */,
 				7581612A1E4F4FE600BCFFE1 /* Resources */,
 				32E381325634D49DB26B5BE6 /* [CP] Embed Pods Frameworks */,
 				A8A6D4A47029BEC08EA7B0B1 /* [CP] Copy Pods Resources */,
-				75B4773D1E517C720086DFCC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -424,6 +441,7 @@
 				754A04B21E509AC700BB4593 /* Styles.swift in Sources */,
 				754A04901E4FDD1600BB4593 /* String+Extension.swift in Sources */,
 				754A04AD1E50982600BB4593 /* Reachability.swift in Sources */,
+				75B477571E52ED470086DFCC /* Meeting.swift in Sources */,
 				754A04A01E50856B00BB4593 /* SignUpViewController.swift in Sources */,
 				754A04A11E50856B00BB4593 /* SignUpViewModel.swift in Sources */,
 				754A04981E4FF20A00BB4593 /* AuthProtocols.swift in Sources */,
@@ -432,9 +450,11 @@
 				75BA0E901E4F5B3D00CB7F87 /* RootViewController.swift in Sources */,
 				754A04AA1E5095BD00BB4593 /* MeetingRoomsListViewController.swift in Sources */,
 				75B477401E517DF50086DFCC /* R.generated.swift in Sources */,
+				750F55101E53F5FF00259B42 /* MeetingRoomListViewModel.swift in Sources */,
 				75B4774B1E51873E0086DFCC /* SettingsViewController.swift in Sources */,
 				75B477551E51A40A0086DFCC /* DatabaseManager.swift in Sources */,
 				754A04AE1E50982600BB4593 /* ReachabilityService.swift in Sources */,
+				750F55131E53FE3700259B42 /* MeetingRoomTableViewCell.swift in Sources */,
 				754A04951E4FF0AB00BB4593 /* Wireframe.swift in Sources */,
 				754A04A51E50857400BB4593 /* LoginViewModel.swift in Sources */,
 				754A04921E4FEE8200BB4593 /* Rx+Extension.swift in Sources */,

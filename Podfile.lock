@@ -116,6 +116,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SwiftDate (4.0.13)
   - TwitterCore (2.8.0):
     - Fabric
   - TwitterKit (2.8.0):
@@ -134,6 +135,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxDataSources (~> 1.0)
   - RxSwift
+  - SwiftDate (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
@@ -163,9 +165,10 @@ SPEC CHECKSUMS:
   RxDataSources: 1de77880bf5b7fcee42102adcd5a5d65e5b81541
   RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: f7b0a1adcb800f6446ff0ef70164797376522ff3
 
-PODFILE CHECKSUM: 80ad8c0c344398dbe4f4b22d438fd4d3184580a9
+PODFILE CHECKSUM: a36c39ac5d200e752d631d732c7ccfce448a3bb2
 
 COCOAPODS: 1.2.0.beta.1
