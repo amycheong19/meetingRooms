@@ -10,6 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Firebase
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
 
 class MeetingRoomsListViewController: UIViewController, UITableViewDelegate {
 
@@ -17,11 +20,14 @@ class MeetingRoomsListViewController: UIViewController, UITableViewDelegate {
     let dataSource = RxTableViewSectionedReloadDataSource<MeetingRoomsListBaseSection>()
     let viewModel = MeetingRoomListViewModel()
     let disposeBag = DisposeBag()
+    let databaseManager = DatabaseManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         configureList()
+        databaseManager.configure(.meetings)
+        databaseManager.configure(.meetingRooms)
     }
     
     func configureTableView(){
@@ -37,7 +43,6 @@ class MeetingRoomsListViewController: UIViewController, UITableViewDelegate {
     func configureList(){
 
         //Link dataSource to tableView
-        
         Observable.just(viewModel.rooms.value)
                   .bindTo(tableView.rx.items(dataSource: dataSource))
                   .addDisposableTo(disposeBag)
@@ -70,10 +75,28 @@ class MeetingRoomsListViewController: UIViewController, UITableViewDelegate {
             return dataSource.sectionModels[index].header
         }
 
+        
+        let ref = FIRDatabase.database().reference()
+        //Listen when child is added
+        ref.child("meetings").observe(.value) { (snapshot: FIRDataSnapshot) in
+            print(snapshot.value)
+        }
+        
+        let post = ["uid": "1234",
+                    "author": "2222",
+                    "title": "wewew",
+                    "body": "qwqwqw"]
+        ref.child("users").childByAutoId().setValue(post)
+        
         //Selected
 //        tableView.rx.modelSelected(MeetingRoomsListBaseSection.self).subscribe(onNext:{
 //            [weak self] item in
 //            
 //        }).addDisposableTo(disposeBag)
+    }
+    
+    deinit {
+        databaseManager.deinit(.meetings)
+        databaseManager.deinit(.meetingRooms)
     }
 }

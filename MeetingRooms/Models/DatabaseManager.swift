@@ -10,30 +10,56 @@ import Foundation
 import Firebase
 import FirebaseDatabaseUI
 
-class DatabaseManager {
+enum FirebaseListener {
+    case meetings
+    case meetingRooms
+    
+    var path: String {
+        switch self {
+            case .meetings:  return "meetings"
+            case .meetingRooms: return "meetingRooms"
+        }
+    }
+}
+
+struct DatabaseManager {
     static let `default` = DatabaseManager()
     
     let ref: FIRDatabaseReference = FIRDatabase.database().reference()
-    
-    init() {
-        configureDatabase()
-    }
-    
-    func configureDatabase(){
+    fileprivate var _refHandle: FIRDatabaseHandle!
+
+    //Listen when child is added
+    func configure(_ listener: FirebaseListener){
         
-        //Listen when child is added
-        ref.child("messages").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
-//            self.messages.append(snapshot)
-//            self.messagesTable.insertRows(at:[ IndexPath(row: self.messages.count - 1 , section: 0)], with: .automatic)
-//            self.scrollToBottomMessage()
+        switch listener {
+        case .meetings:
+            ref.child("meetings").observe(.value) { (snapshot: FIRDataSnapshot) in
+                let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                print(postDict)
+                
+            }
+            
+            ref.child("meetings").observeSingleEvent(of: .value, with: { (snapshot) in
+                print("Inside block")
+                let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                print(postDict)
+            })
+        case .meetingRooms:
+            ref.child("meetingRooms").observe(.value) { (snapshot: FIRDataSnapshot) in
+                let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                print(postDict)
+                
+            }
         }
     }
-    
-    deinit {
-        
-    }
+
     
     func set(newValue: String, on path: String){
         ref.child(path).setValue(newValue)
+    }
+    
+    //Listen when child is added
+    func `deinit`(_ listener: FirebaseListener){
+        ref.child(listener.path).removeObserver(withHandle: _refHandle)
     }
 }

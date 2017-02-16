@@ -41,18 +41,15 @@ struct MeetingRoomBooking {
 
 
 class MeetingRoomListViewModel{
-    //TODO: Pull data from firebase    
-    let ref: FIRDatabaseReference = FIRDatabase.database().reference()
-    fileprivate var _refHandle: FIRDatabaseHandle!
-    
     //Meeting Rooms bookings
-    
     let rooms = Variable<[MeetingRoomsListBaseSection]>([])
+    
     let meetings = Variable<[Meeting]>(
-        [Meeting(title: "Morning meeting A", date: Date(), session: .morning, meetingRoomId: 1),
-         Meeting(title: "Morning meeting B", date: Date(), session: .afternoon, meetingRoomId: 2),
-         Meeting(title: "Morning meeting C", date: Date(), session: .evening, meetingRoomId: 1)]
+        [Meeting(title: "Morning meeting A", date: Date(), session: .morning, meetingRoomId: 1, personInChargeId: 1),
+         Meeting(title: "Morning meeting B", date: Date(), session: .afternoon, meetingRoomId: 2, personInChargeId: 1),
+         Meeting(title: "Morning meeting C", date: Date(), session: .evening, meetingRoomId: 1, personInChargeId: 1)]
     )
+    
     
     let meetingRooms = Variable<[MeetingRoom]>(
         [MeetingRoom(id: 1, title: "Tiger Den", description: "desc", capacity: 20),
@@ -84,31 +81,6 @@ class MeetingRoomListViewModel{
                 self?.rooms.value = [MeetingRoomsListBaseSection(header: "", items: meetingRoomBookings)]
                 
             }).addDisposableTo(disposeBag)
-    }
-    
-    
-    
-    //MARK: Firebase
-    func configureListeners(){
-        //Listen when child is added
-        ref.child("meetingRooms").observe(.childChanged) { (snapshot: FIRDataSnapshot) in
-
-            //1. Get snapshot
-            //2. Parse them into Meeting Rooms
-        }
-        
-        //Listen when child is added
-        ref.child("meetings").observe(.childChanged) { (snapshot: FIRDataSnapshot) in
-            
-            //1. Get snapshot
-            //2. Parse them into Meetings
-            //
-        }
-    }
-    
-    func deinitListeners(){
-        ref.child("meetingRooms").removeObserver(withHandle: _refHandle)
-        ref.child("meetings").removeObserver(withHandle: _refHandle)
     }
     
 }

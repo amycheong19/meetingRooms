@@ -19,7 +19,10 @@ struct Meeting {
 //    var description : String?
     var date: Date
     var session: Session
-    var meetingRoomId: Int  //Link to MeetingRoom
+    var meetingRoomId: Int      //Link to MeetingRoom
+    var personInChargeId: Int   //UserId
+    
+    
 }
 
 struct MeetingRoom {
