@@ -223,9 +223,9 @@
 		7581612E1E4F4FE600BCFFE1 /* MeetingRooms */ = {
 			isa = PBXGroup;
 			children = (
+				7581612F1E4F4FE600BCFFE1 /* AppDelegate.swift */,
 				75B4773E1E517DF50086DFCC /* External */,
 				754A04B31E5110F400BB4593 /* Models */,
-				7581612F1E4F4FE600BCFFE1 /* AppDelegate.swift */,
 				754A04961E4FF1D000BB4593 /* Protocols */,
 				754A04931E4FF09400BB4593 /* Services */,
 				754A048E1E4FDCEA00BB4593 /* Extensions */,

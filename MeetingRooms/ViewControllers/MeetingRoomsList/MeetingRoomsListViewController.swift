@@ -74,19 +74,6 @@ class MeetingRoomsListViewController: UIViewController, UITableViewDelegate {
             dataSource, index in
             return dataSource.sectionModels[index].header
         }
-
-        
-        let ref = FIRDatabase.database().reference()
-        //Listen when child is added
-        ref.child("meetings").observe(.value) { (snapshot: FIRDataSnapshot) in
-            print(snapshot.value)
-        }
-        
-        let post = ["uid": "1234",
-                    "author": "2222",
-                    "title": "wewew",
-                    "body": "qwqwqw"]
-        ref.child("users").childByAutoId().setValue(post)
         
         //Selected
 //        tableView.rx.modelSelected(MeetingRoomsListBaseSection.self).subscribe(onNext:{

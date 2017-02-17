@@ -9,6 +9,8 @@
 import Foundation
 import Firebase
 import FirebaseDatabaseUI
+import RxSwift
+import RxCocoa
 
 enum FirebaseListener {
     case meetings
@@ -24,10 +26,17 @@ enum FirebaseListener {
 
 struct DatabaseManager {
     static let `default` = DatabaseManager()
+    public var meetings = Variable<[Date: Meeting]>([:])
+    public var meetingRooms = Variable<[MeetingRoom]>([])
     
     let ref: FIRDatabaseReference = FIRDatabase.database().reference()
     fileprivate var _refHandle: FIRDatabaseHandle!
 
+    init() {
+        //writes the data locally to the device so your app can maintain state while offline
+//        FIRDatabase.database().persistenceEnabled = true
+    }
+    
     //Listen when child is added
     func configure(_ listener: FirebaseListener){
         
@@ -35,6 +44,8 @@ struct DatabaseManager {
         case .meetings:
             ref.child("meetings").observe(.value) { (snapshot: FIRDataSnapshot) in
                 let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                
+                
                 print(postDict)
                 
             }
@@ -47,6 +58,9 @@ struct DatabaseManager {
         case .meetingRooms:
             ref.child("meetingRooms").observe(.value) { (snapshot: FIRDataSnapshot) in
                 let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                
+                
+                
                 print(postDict)
                 
             }
